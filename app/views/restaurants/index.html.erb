@@ -1,0 +1,22 @@
+<div class="container pd-40px">
+  <h1 class="py-4">Restaurant Listings</h1>
+
+  <div class="row justify-content-center">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= restaurant.name %></h5>
+            <p class="card-text"><%= restaurant.address %></p>
+            <p class="card-text"><strong>Category:</strong> <%= restaurant.category.capitalize %></p>
+            <%= link_to "View Details", restaurant_path(restaurant), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-primary" %>
+  </div>
+</div>

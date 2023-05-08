@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title"><%= @restaurant.name %></h5>
+      <p class="card-text"><strong>Address:</strong> <%= @restaurant.address %></p>
+      <p class="card-text"><strong>Category:</strong> <%= @restaurant.category.capitalize %></p>
+    </div>
+  </div>
+
+  <h2>Reviews</h2>
+
+  <% @reviews.each do |review| %>
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Rating: <%= review.rating %></h5>
+        <p class="card-text"><%= review.content %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+  <%= link_to "Back to restaurants", restaurants_path, class: "btn btn-primary" %>
+</div>
+
+
+<h2>Reviews</h2>
+
+<% if @reviews.any? %>
+  <% @reviews.each do |review| %>
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Rating: <%= review.rating %></h5>
+        <h5 class="card-title">Rating: <%= review.rating %></h5>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p>No reviews available.</p>
+<% end %>

@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Add a New Review</h1>
+
+  <%= simple_form_for [@restaurant, @review], url: restaurant_reviews_path(@restaurant), html: { class: "mb-4" } do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating, collection: 0..5, prompt: "Select a rating" %>
+
+    <%= f.button :submit, "Add Review", class: "btn btn-primary" %>
+  <% end %>
+</div>
